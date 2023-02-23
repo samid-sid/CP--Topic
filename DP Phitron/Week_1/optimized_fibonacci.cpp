@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-unordered_map<int,long long > mp;
 #define ll long long
 ll arr[100];
 
