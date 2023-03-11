@@ -40,12 +40,12 @@ void solve()
         ll exc = dp[i-1];
         dp[i] = max(inc,exc);
     }
-    cout << dp[n] << endl;
+    // cout << dp[n] << endl;
 }
 int main()
 {
     int t = 1;
-    cin >> t;
+    // cin >> t;
     for(int i=1;i<=t;i++)
     {
         solve();

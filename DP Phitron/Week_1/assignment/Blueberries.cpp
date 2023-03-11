@@ -37,15 +37,33 @@ int solve()
     {
         cin >> arr[i] ;
     }
-    for(int i=0;i<=k;i++)
+    for(int i=0;i<=n;i++)
     {
-        for(int j=0;j<=n;j++)
+        for(int j=0;j<=k;j++)
         {
-            dp[i][j] = -1;
+            dp[i][j] = 0;
         }
     }
+
+    for(int i=0;i<=n;i++)
+    {
+        for(int j=0;j<=k;j++)
+        {
+            if(i ==0 || j ==0) {
+                dp[i][j] = 0;
+                // continue;
+            }
+
+            if(arr[i] <= j)
+            {
+                dp[i][j]= max(dp[i-2][j-arr[i-2]] + arr[i], dp[i-1][j]);
+            }
+            else dp[i][j] = dp[i-1][j];
+        }
+    }
+    cout << dp[n][k] << endl;
     
-    return fun(arr,n-1,k);
+    // return fun(arr,n-1,k);
 }
 
 
@@ -55,9 +73,9 @@ int main()
     cin >> t;
     for(int i=1;i<=t;i++)
     {
-    //    cout <<  solve();
-        int ans = solve();
-        printf("Scenario #%d: %d\n",i,ans);
+        solve();
+        // int ans = solve();
+        // printf("Scenario #%d: %d\n",i,ans);
     }
     return 0;
 }
